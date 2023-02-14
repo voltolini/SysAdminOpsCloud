@@ -25,7 +25,7 @@ Having a Hybrid Azure AD Joined device enables the following features:
 •	Backup of the BitLocker recovery key in Azure AD
 •	Sync of some Windows settings by the Enterprise State Roaming
 
-
+![image](https://www.maximerastello.com/wp-content/uploads/2019/12/hybrid-portal-768x252.png)
  
 Sometimes, a machine can be in an inconsistent registration state in Azure Active Directory. This can happen because:
 •	The machine was shut down during a long time, and the Azure AD device registration certificate is expired (located in Local Machine / Certificates / Personal)
@@ -39,6 +39,8 @@ Follow this procedure:
 dsregcmd /leave
 •	Make sure the certificates issued by “MS-Organization-Access” and “MS-Organization-P2P-Access [xxxx]” have been deleted from the local machine Personal certificate store:
  
+ ![image](https://www.maximerastello.com/wp-content/uploads/2019/12/cert-hybrid-azure-ad-600x109.png)
+ 
 •	Type the command dsregcmd /status in a Command Prompt, and make sure the following parameters have the appropriate values:
 dsregcmd /status
 
@@ -48,13 +50,21 @@ dsregcmd /status
 AzureAdJoined : NO  <-----
 EnterpriseJoined : NO
 DomainJoined : YES  <-----
+
+
 Step 2: Re-register the device as a Hybrid Azure AD Join
 Follow this procedure:
 •	On the machine to re-register, run the Task Scheduler as an administrator.
+
+![image](https://www.maximerastello.com/wp-content/uploads/2019/12/task-scheduler-300x284.png)
  
 •	Go to Task Scheduler Library > Microsoft > Windows > Workplace Join and manually start the task “Automatic-Device-Join“.
+
+![image](https://www.maximerastello.com/wp-content/uploads/2019/12/rejoin-768x460.png)
  
 •	Make sure the certificates issued by “MS-Organization-Access” and “MS-Organization-P2P-Access [xxxx]” have been created in the local machine Personal certificate store:
+ 
+ ![image](https://www.maximerastello.com/wp-content/uploads/2019/12/cert-hybrid-azure-ad-600x109.png)
  
 •	Type the command dsregcmd /status in a Command Prompt, and make sure the following parameters have the appropriate values:
 dsregcmd /status
@@ -65,5 +75,6 @@ dsregcmd /status
 AzureAdJoined : YES  <-----
 EnterpriseJoined : NO
 DomainJoined : YES
+
 •	Reboot the PC.
 •	Start an Azure AD Connect delta synchronization.
