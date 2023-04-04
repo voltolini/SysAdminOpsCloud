@@ -22,18 +22,10 @@
 		<li><a href="https://lnkd.in/d5wAr7TR">Live - Gestão Financeira em Cloud: Como criar uma cultura FinOps</a></li>
 		<li><a href="https://lnkd.in/dbzUiknG">Live - Finops - Muito Além da redução de custos</a></li>
 		<li><a href="https://lnkd.in/dqANP8kV">Live - Você sabe o que é FINOPS?</a></li>
-		<li><a href="https://lnkd.in/dj-QDbPY">Live - FinOps: O modelo que irá transformar a forma como se trabalha com cloud</a></li>  
-<ul>
-    <li>19. FinOps Azure: otimizar para inovar<br>
-  <a href="https://lnkd.in/dHfYZG27">https://lnkd.in/dHfYZG27</a></li>
-  <li>20. Podcast - O que é FinOps com Marcelo Scharan CEO da Pier Cloud<br>
-  <a href="https://lnkd.in/db4AV5Um">https://lnkd.in/db4AV5Um</a></li>
-  <li>21. Podcast - FinOps - Gestão Financeira da Nuvem<br>
-  <a href="https://lnkd.in/dWRN-dTH">https://lnkd.in/dWRN-dTH</a></li>
-  <li>22. Gerenciamento de custos no Azure - FinOps, planejamento, boas práticas<br>
-  <a href="https://lnkd.in/dXz5R_gG">https://lnkd.in/dXz5R_gG</a></li>
-  <li>23. Papers GCP<br>
-  <a href="https://lnkd.in/d5qhE5N6">https://lnkd.in/d5qhE5N6</a><br>
-  <a href="https://lnkd.in/dQ2vZkWu">https://lnkd.in/dQ2vZkWu</a><br>
-  <a href="https://lnkd.in/de2wE23s">https://lnkd.in/de2wE23s</a></li>
+		<li><a href="https://lnkd.in/dj-QDbPY">Live - FinOps: O modelo que irá transformar a forma como se trabalha com cloud</a></li> 
+    <li>FinOps Azure: otimizar para inovar<br><a href="https://lnkd.in/dHfYZG27">https://lnkd.in/dHfYZG27</a></li>
+  <li>Podcast - O que é FinOps com Marcelo Scharan CEO da Pier Cloud<br><a href="https://lnkd.in/db4AV5Um">https://lnkd.in/db4AV5Um</a></li>
+  <li>Podcast - FinOps - Gestão Financeira da Nuvem<br><a href="https://lnkd.in/dWRN-dTH">https://lnkd.in/dWRN-dTH</a></li>
+  <li>Gerenciamento de custos no Azure - FinOps, planejamento, boas práticas<br><a href="https://lnkd.in/dXz5R_gG">https://lnkd.in/dXz5R_gG</a></li>
+  <li>Papers GCP<br><a href="https://lnkd.in/d5qhE5N6">https://lnkd.in/d5qhE5N6</a><br><a href="https://lnkd.in/dQ2vZkWu">https://lnkd.in/dQ2vZkWu</a><br><a href="https://lnkd.in/de2wE23s">https://lnkd.in/de2wE23s</a></li>
 </ul>
