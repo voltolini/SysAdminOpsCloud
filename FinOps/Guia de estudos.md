@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Links da FinOps.org</title>
+
 </head>
 <body>
-	<h1>Links da FinOps.org</h1>
+	<h1>Guia de Estudos - FinOps</h1>
 	<ul>
 		<li><a href="https://lnkd.in/dNiyU8nE">Site da FinOps.org</a> - Uma excelente fonte de conhecimento sobre a cultura.</li>
 		<li><a href="https://lnkd.in/d-fjhZUS">Bolsas de Estudos FinOps.org</a> - Bolsa de estudos para preparatório e certificação FinOps.</li>
