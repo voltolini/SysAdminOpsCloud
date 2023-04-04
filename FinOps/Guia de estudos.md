@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Recursos sobre FinOps</title>
+	<title></title>
 </head>
 <body>
 	<h1>Recursos sobre FinOps</h1>
