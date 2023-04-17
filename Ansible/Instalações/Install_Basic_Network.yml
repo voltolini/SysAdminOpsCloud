@@ -1,0 +1,22 @@
+- name: Instalação de pacotes no Ubuntu
+  hosts: nome_do_host
+  become: true
+  tasks:
+    - name: Atualiza lista de pacotes
+      apt:
+        update_cache: yes
+
+    - name: Instala htop
+      apt:
+        name: htop
+        state: present
+
+    - name: Instala net-tools
+      apt:
+        name: net-tools
+        state: present
+
+    - name: Instala nmap
+      apt:
+        name: nmap
+        state: present
