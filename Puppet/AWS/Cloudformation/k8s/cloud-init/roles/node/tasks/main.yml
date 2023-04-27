@@ -1,0 +1,64 @@
+---
+# This playbook deploys the Kubernetes cluster with Contrail CNI
+
+# Author: SAVITHRU LOKANATH
+# Contact: SAVITHRU AT ICLOUD DOT COM
+- name: Reset kubernetes if installed
+  shell: kubeadm reset
+
+- name: Register nodes to master
+  shell: kubeadm join {{ groups['masters'][0] }}:6443 --token {{ hostvars[groups['masters'][0]]['token'] }} --discovery-token-unsafe-skip-ca-verification
+
+- name: Get master public hostname
+  uri:
+    url: http://169.254.169.254/latest/meta-data/public-hostname
+    return_content: yes
+  register: hostname_master 
+  delegate_to: "{{ groups['masters'][0] }}"
+
+- name: Get master private hostname
+  command: hostname -f
+  register: hostname_private_master
+  delegate_to: "{{ groups['masters'][0] }}"
+
+- name: Label master with opencontrail.org/controller=true
+  command: kubectl label node "{{ hostname_private_master.stdout }}" opencontrail.org/controller=true
+  delegate_to: "{{ groups['masters'][0] }}"
+
+- name: Create Contrail registry secret
+  command: kubectl create secret docker-registry contrail-registry-secret --docker-server="{{ contrail_registry }}" --docker-username="{{ contrail_registry_username }}" --docker-password="{{ contrail_registry_password }}" --docker-email=contrail@helloworld.com -n kube-system
+  delegate_to: "{{ groups['masters'][0] }}"
+  
+- name: Launch Contrail Networking
+  shell: kubectl apply -f /tmp/contrail-installer.yml
+  delegate_to: "{{ groups['masters'][0] }}"
+
+- name: Launch kubernetes dashboard
+  shell: kubectl create -f /tmp/k8s-dashboard.yml
+  delegate_to: "{{ groups['masters'][0] }}"
+
+- name: Get node hostname
+  uri:
+    url: http://169.254.169.254/latest/meta-data/public-hostname
+    return_content: yes
+  register: hostname_node
+
+- name: Wait for Contrail dashboard service to come up
+  uri:
+    url: https://{{ hostname_master.content }}:8143
+    validate_certs: False
+    status_code: 200
+  register: result
+  until: ('status' in result) and (result.status == 200)
+  retries: 300
+  delay: 2
+
+- name: Wait for kubernetes dashboard pod to come up
+  uri:
+    url: http://{{ hostname_node.content }}:9090
+    validate_certs: False
+    status_code: 200
+  register: result
+  until: ('status' in result) and (result.status == 200)
+  retries: 100
+  delay: 2
